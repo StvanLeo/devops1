@@ -1,0 +1,20 @@
+{
+  "name": "devops-1",
+  "version": "1.0.0",
+  "description": "My first DevOps application 1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["devops", "nodejs", "docker"],
+  "author": "DevOps 1",
+  "license": "MIT"
+}

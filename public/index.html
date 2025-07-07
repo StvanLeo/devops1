@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Exercise 1</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .emoji {
+            font-size: 1.2em;
+        }
+        .stats {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .api-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🚀</span> ¡Welcome to DevOps 1!</h1>
+        
+        <div class="stats">
+            <h2><span class="emoji">🎯</span> My First DevOps App</h2>
+            <p>Congratulations! You've successfully deployed your first application in the DevOps world.</p>
+            <p class="success">✅ Application running correctly</p>
+            <p class="success">✅ Docker container running</p>
+            <p class="success">✅ API Endpoints Ready</p>
+        </div>
+
+        <div class="api-info">
+            <h3><span class="emoji">🔗</span> Endpoints available:</h3>
+            <p><strong>GET /</strong> - This home page</p>
+            <p><strong>GET /health</strong> - Health check of the app</p>
+            <p><strong>GET /api/stats</strong> - App statistics</p>
+            <p><strong>GET /api/error</strong> - Simulate an error (for testing)</p>
+            <p><strong>GET /api/slow</strong> - Simulate a slow response</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/health" class="button">🏥 Health Check</a>
+            <a href="/api/stats" class="button">📊 View Stats</a>
+        </div>
+
+        <div class="stats">
+            <h3><span class="emoji">📚</span> What you are learning:</h3>
+            <ul>
+                <li>Web application development with Node.js</li>
+                <li>Containerization with Docker</li>
+                <li>Automation with Bash scripts</li>
+                <li>Monitoring and observability</li>
+                <li>Version control with Git</li>
+                <li>Basic CI/CD pipelines</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p><span class="emoji">🎉</span> <strong>You're on the right path to becoming a DevOps Engineer!</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Small script to make the page more interactive
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DevOps App loaded successfully!');
+            
+            // Add timestamp to the page
+            const timestamp = new Date().toLocaleString();
+            const footer = document.createElement('div');
+            footer.style.textAlign = 'center';
+            footer.style.marginTop = '20px';
+            footer.style.fontSize = '0.9em';
+            footer.style.opacity = '0.8';
+            footer.innerHTML = `<p>Page loaded: ${timestamp}</p>`;
+            document.querySelector('.container').appendChild(footer);
+        });
+    </script>
+</body>
+</html>
