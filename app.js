@@ -75,3 +75,5 @@ app.listen(PORT, () => {
   console.log(`📊 Health check: http://localhost:${PORT}/health`);
   console.log(`📈 Stats: http://localhost:${PORT}/api/stats`);
 });
+console.log("🐛 Bug introducido para simular problema");
+// Parche de seguridad aplicado Wed Jul  9 09:19:22 PM UTC 2025
