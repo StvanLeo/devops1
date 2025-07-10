@@ -27,10 +27,10 @@ run_test() {
 
     if eval "$test_command"; then 
         echo -e "${GREEN}✅ PASS: ${test_name}${NC}" 
-        ((TESTS_PASSED++)) 
+        ((++TESTS_PASSED))
     else 
         echo -e "${RED}❌ FAIL: ${test_name}${NC}" 
-        ((TESTS_FAILED++)) 
+        ((++TESTS_FAILED))
     fi 
     echo
 }
