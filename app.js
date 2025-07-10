@@ -75,3 +75,12 @@ app.listen(PORT, () => {
   console.log(`📊 Health check: http://localhost:${PORT}/health`);
   console.log(`📈 Stats: http://localhost:${PORT}/api/stats`);
 });
+
+app.get('/api/version', (req, res) => {
+  res.json({
+    version: '1.1.0',
+    buildDate: 'Thu Jul 10 02:24:11 PM UTC 2025',
+    author: 'Tu Nombre',
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
