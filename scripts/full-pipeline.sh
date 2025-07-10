@@ -74,10 +74,10 @@ echo "🚀 Deploying to staging..."
 docker stop my-app-staging 2>/dev/null || true
 docker rm my-app-staging 2>/dev/null || true
 
-docker run -d \ 
-    --name my-app-staging \ 
-    -p 3001:4000 \ 
-    my-app-devops:pipeline-${PIPELINE_ID}
+docker run -d \
+--name my-app-staging \
+-p 3001:4000 \
+my-app-devops:pipeline-${PIPELINE_ID}
 
 echo "⏳ Waiting for staging to be ready..."
 sleep 8
@@ -113,11 +113,11 @@ echo "🔄 Implementing Blue-Green deployment..."
 docker stop my-app-prod 2>/dev/null || true
 docker rm my-app-prod 2>/dev/null || true
 
-docker run -d \ 
-    --name my-app-prod \ 
-    --restart unless-stopped \ 
-    -p 4000:4000 \ 
-    my-app-devops:pipeline-${PIPELINE_ID}
+docker run -d \
+--name my-app-prod \
+--restart unless-stopped \
+-p 4000:4000 \
+my-app-devops:pipeline-${PIPELINE_ID}
 
 echo "⏳ Verifying deployment in production..."
 sleep 5
