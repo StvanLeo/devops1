@@ -60,6 +60,37 @@ app.get('/api/slow', (req, res) => {
   }, 2000);
 });
 
+app.get('/api/version', (req, res) => {
+  res.json({
+    version: '1.1.0',
+    buildDate: 'Thu Jul 10 02:24:11 PM UTC 2025',
+    author: 'Esteban',
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+app.get('/api/team', (req, res) => {
+  res.json({
+    teamName: "DevOps Team",
+    members: ["Esteban", "Jacky", "Luis"],
+    motto: "Deploy fast, break nothing!",
+    established: new Date().toISOString()
+  });
+});
+
+const fs = require('fs');
+
+app.get('/health/advanced', (req, res) => {
+  // Simulate to check DB
+  const dbStatus = fs.existsSync('./data.json') ? 'connected' : 'disconnected';
+  
+  res.json({
+    status: 'OK',
+    database: dbStatus,
+    uptime: Date.now() - startTime,
+    version: '1.2.0'
+  });
+});
 
 app.use((req, res) => {
   errorCount++;
@@ -74,15 +105,6 @@ app.listen(PORT, () => {
   console.log(`🚀 DevOps 1 App running on port ${PORT}`);
   console.log(`📊 Health check: http://localhost:${PORT}/health`);
   console.log(`📈 Stats: http://localhost:${PORT}/api/stats`);
-});
-
-app.get('/api/version', (req, res) => {
-  res.json({
-    version: '1.1.0',
-    buildDate: 'Thu Jul 10 02:24:11 PM UTC 2025',
-    author: 'Esteban',
-    environment: process.env.NODE_ENV || 'development'
-  });
 });
 
 // console.log("🐛 Bug introducido para simular problema");

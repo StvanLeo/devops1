@@ -66,7 +66,7 @@ if curl -s ${APP_URL}/health > /dev/null 2>&1; then
     echo -e "${BLUE}🌐 Application detected running, running endpoint tests...${NC}" 
 
     # Main endpoint test 
-    run_test "Primary endpoint responds" "curl -s ${APP_URL} | grep -q 'DevOps Bootcamp'" 
+    run_test "Primary endpoint responds" "curl -s ${APP_URL} | grep -q 'DevOps 1'" 
 
     # Health check test 
     run_test "Health check responds OK" "curl -s ${APP_URL}/health | grep -q '\"status\":\"OK\"'" 
@@ -79,6 +79,12 @@ if curl -s ${APP_URL}/health > /dev/null 2>&1; then
 
     # Error endpoint test
     run_test "Error endpoint response 500" "test \$(curl -s -o /dev/null -w '%{http_code}' ${APP_URL}/api/error) -eq 500"
+
+    # Test team
+    run_test "Check team" "curl -s ${APP_URL}/api/team | grep -q 'Esteban'" 
+
+    # Test health DB
+    run_test "Check health DB" "curl -s ${APP_URL}/health/advanced | grep -q '\"status\":\"OK\"'" 
 
 else
     echo -e "${YELLOW}⚠️ No application detected running, skipping endpoint tests${NC}"
